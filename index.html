@@ -1,0 +1,433 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Glow with Amayra | Hand-poured soy candles, Delhi</title>
+<meta name="description" content="Hand-poured soy candles from Delhi for weddings, baby showers, corporate gifting and festivals. Custom, bulk, delivered across India. Sample site by Kavimir.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* Brief: hand-poured soy candles, Delhi, gifting + bulk. Warm, handmade, a little theatrical.
+   One idea: the cursor is the flame. The hero sits in the dark and you light it up. */
+:root{
+  --ink:#120d0a;--ink2:#1d1511;--cream:#f5e9d6;--cream2:#ecdcc2;--amber:#f0a04b;--ember:#d9622b;--rose:#e8557f;
+  --line:rgba(245,233,214,.16);--lineD:rgba(18,13,10,.14);
+  --serif:'Fraunces',Georgia,serif;--sans:'Manrope',system-ui,sans-serif;
+  --ease:cubic-bezier(.2,.7,.2,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--ink);color:var(--cream);font-family:var(--sans);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;cursor:pointer;border:0;background:none}
+:focus-visible{outline:2px solid var(--amber);outline-offset:3px}
+.wrap{width:min(1180px,100% - 32px);margin-inline:auto}
+.eyebrow{font-size:12px;letter-spacing:.2em;text-transform:uppercase;font-weight:600;color:var(--amber)}
+.h2{font-family:var(--serif);font-weight:400;font-size:clamp(34px,5.4vw,66px);line-height:1.04;letter-spacing:-.02em}
+.h2 em{font-style:italic;color:var(--amber)}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:15px 26px;border-radius:99px;font-weight:700;font-size:15px;transition:transform .3s var(--ease),background .3s,box-shadow .3s}
+.btn-a{background:var(--amber);color:var(--ink);box-shadow:0 10px 40px -10px rgba(240,160,75,.6)}
+.btn-a:hover{transform:translateY(-2px);background:#ffb460}
+.btn-o{border:1px solid var(--line);color:var(--cream)}
+.btn-o:hover{background:rgba(245,233,214,.08)}
+.rv{opacity:0;transform:translateY(26px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.rv.in{opacity:1;transform:none}
+
+/* nav */
+.nav{position:fixed;inset:0 0 auto 0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:16px max(16px,calc((100vw - 1180px)/2));mix-blend-mode:normal;transition:background .4s,backdrop-filter .4s}
+.nav.s{background:rgba(18,13,10,.78);backdrop-filter:blur(14px)}
+.logo{font-family:var(--serif);font-size:22px;font-style:italic;letter-spacing:-.01em}
+.logo b{font-style:normal;color:var(--amber);font-weight:500}
+.nav .btn{padding:10px 20px;font-size:14px}
+.nav-links{display:flex;gap:28px;font-size:14px;font-weight:500;opacity:.85}
+.nav-links a:hover{color:var(--amber)}
+@media(max-width:820px){.nav-links{display:none}}
+
+/* hero */
+.hero{position:relative;min-height:100svh;display:flex;align-items:center;overflow:hidden;background:radial-gradient(ellipse 70% 60% at 70% 45%,#2a1b11 0%,var(--ink) 70%)}
+.coll{position:absolute;inset:0;pointer-events:none}
+.coll img{position:absolute;object-fit:cover;box-shadow:0 30px 80px -20px rgba(0,0,0,.7)}
+.c1{right:6%;top:13%;width:min(30vw,380px);aspect-ratio:3/4;border-radius:999px 999px 24px 24px}
+.c2{right:34%;top:56%;width:min(17vw,220px);aspect-ratio:1;border-radius:50%;transform:rotate(-6deg)}
+.c3{right:2%;top:60%;width:min(15vw,190px);aspect-ratio:4/5;border-radius:18px;transform:rotate(5deg)}
+.c4{right:36%;top:10%;width:min(13vw,170px);aspect-ratio:1;border-radius:18px;transform:rotate(7deg)}
+.c5{right:19%;top:63%;width:min(11vw,140px);aspect-ratio:1;border-radius:50%;transform:rotate(-3deg)}
+.dark{position:absolute;inset:0;pointer-events:none;background:radial-gradient(circle var(--r,240px) at var(--x,70%) var(--y,45%),rgba(18,13,10,0) 0%,rgba(18,13,10,.35) 45%,rgba(18,13,10,.94) 100%);transition:opacity 1.4s var(--ease)}
+.hero.lit .dark{opacity:0}
+.glowdot{position:absolute;left:0;top:0;width:14px;height:14px;margin:-7px;border-radius:50%;pointer-events:none;background:radial-gradient(circle,#fff6e0,var(--amber) 45%,transparent 70%);box-shadow:0 0 40px 18px rgba(240,160,75,.45);transform:translate(var(--px,70vw),var(--py,45vh));transition:opacity .8s}
+.hero.lit .glowdot{opacity:0}
+.hero-in{position:relative;z-index:2;padding:130px 0 90px}
+.hero h1{font-family:var(--serif);font-weight:300;font-size:clamp(46px,8.4vw,118px);line-height:.96;letter-spacing:-.035em;max-width:9.5em}
+.hero h1 em{font-style:italic;color:var(--amber);font-weight:400}
+.hero p{max-width:30em;margin:28px 0 36px;font-size:clamp(16px,1.6vw,19px);color:rgba(245,233,214,.82)}
+.hero .row{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.lightbtn{display:inline-flex;align-items:center;gap:10px;font-size:13px;font-weight:600;letter-spacing:.06em;color:var(--amber);padding:12px 4px}
+.lightbtn i{width:9px;height:9px;border-radius:50%;background:var(--amber);box-shadow:0 0 14px 4px rgba(240,160,75,.7);animation:fl 1.6s infinite alternate}
+@keyframes fl{from{transform:scale(.8);opacity:.7}to{transform:scale(1.15);opacity:1}}
+.hero-meta{position:absolute;z-index:2;left:0;right:0;bottom:22px;display:flex;justify-content:space-between;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:rgba(245,233,214,.55)}
+@media(max-width:820px){
+  .coll img{opacity:.9}
+  .c1{right:-8%;top:auto;bottom:6%;width:62vw}
+  .c2{display:none}.c5{display:none}
+  .c3{right:auto;left:-6%;top:auto;bottom:4%;width:34vw}
+  .c4{right:auto;left:30%;top:auto;bottom:2%;width:26vw}
+  .hero-in{padding:120px 0 40vh}
+  .hero-meta{display:none}
+}
+
+/* marquee */
+.mq{background:var(--amber);color:var(--ink);overflow:hidden;white-space:nowrap;padding:16px 0;font-family:var(--serif);font-style:italic;font-size:clamp(20px,2.6vw,30px)}
+.mq div{display:inline-block;animation:mq 38s linear infinite}
+.mq span{margin:0 26px}
+.mq span::after{content:"✦";font-style:normal;font-size:.6em;margin-left:52px;opacity:.6}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+/* collection */
+.sec{padding:clamp(80px,11vw,150px) 0}
+.light{background:var(--cream);color:var(--ink)}
+.light .eyebrow{color:var(--ember)}
+.light .h2 em{color:var(--ember)}
+.sec-h{display:flex;justify-content:space-between;align-items:end;gap:30px;flex-wrap:wrap;margin-bottom:clamp(36px,5vw,64px)}
+.sec-h p{max-width:26em;opacity:.75}
+.grid{columns:3;column-gap:20px}
+@media(max-width:900px){.grid{columns:2}}
+@media(max-width:560px){.grid{columns:1}}
+.card{break-inside:avoid;margin-bottom:20px;position:relative;border-radius:20px;overflow:hidden;background:var(--ink)}
+.card img{width:100%;object-fit:cover;transition:transform 1.1s var(--ease)}
+.card:hover img{transform:scale(1.05)}
+.card .cap{position:absolute;inset:auto 0 0 0;padding:60px 18px 16px;background:linear-gradient(transparent,rgba(18,13,10,.88));color:var(--cream);display:flex;justify-content:space-between;align-items:end;gap:10px}
+.card h3{font-family:var(--serif);font-weight:400;font-size:21px;line-height:1.15}
+.card small{display:block;font-size:12px;letter-spacing:.08em;text-transform:uppercase;opacity:.7;margin-top:4px}
+.ask{flex:none;width:42px;height:42px;border-radius:50%;background:var(--amber);color:var(--ink);display:grid;place-items:center;font-size:18px;transition:transform .3s var(--ease)}
+.ask:hover{transform:scale(1.1) rotate(-12deg)}
+.a1 img{aspect-ratio:4/5}.a2 img{aspect-ratio:1}.a3 img{aspect-ratio:4/5}.a4 img{aspect-ratio:1}.a5 img{aspect-ratio:3/4}.a6 img{aspect-ratio:1}.a7 img{aspect-ratio:4/5}
+
+/* occasions */
+.occ{border-top:1px solid var(--line)}
+.occ li{list-style:none;border-bottom:1px solid var(--line)}
+.occ button{width:100%;display:grid;grid-template-columns:70px 1fr auto;gap:20px;align-items:baseline;text-align:left;padding:30px 0;transition:padding .4s var(--ease),color .3s}
+.occ button:hover{padding-left:16px;color:var(--amber)}
+.occ .n{font-size:13px;color:var(--amber);letter-spacing:.14em}
+.occ .t{font-family:var(--serif);font-size:clamp(30px,5vw,64px);line-height:1;letter-spacing:-.02em}
+.occ .d{font-size:14px;opacity:.65;max-width:18em;text-align:right}
+@media(max-width:700px){.occ button{grid-template-columns:34px 1fr}.occ .d{grid-column:2;text-align:left;margin-top:6px}}
+.peek{position:fixed;left:0;top:0;width:220px;aspect-ratio:4/5;border-radius:16px;background-size:cover;background-position:center;pointer-events:none;z-index:40;opacity:0;transform:translate(-999px,-999px) scale(.85);transition:opacity .25s,scale .25s;box-shadow:0 30px 70px -20px #000}
+.peek.on{opacity:1}
+@media(hover:none){.peek{display:none}}
+
+/* builder */
+.build{background:linear-gradient(180deg,var(--ink2),#2a170d)}
+.bgrid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(28px,5vw,70px);align-items:start}
+@media(max-width:900px){.bgrid{grid-template-columns:1fr}}
+.fld{margin-top:30px}
+.fld>label,.fld>span{display:block;font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:600;color:rgba(245,233,214,.6);margin-bottom:12px}
+.chips{display:flex;flex-wrap:wrap;gap:10px}
+.chip{padding:11px 18px;border-radius:99px;border:1px solid var(--line);font-size:14px;font-weight:500;transition:all .25s}
+.chip:hover{border-color:var(--amber)}
+.chip[aria-pressed=true]{background:var(--amber);border-color:var(--amber);color:var(--ink);font-weight:700}
+.inp{width:100%;background:rgba(245,233,214,.06);border:1px solid var(--line);border-radius:14px;padding:15px 18px;color:var(--cream);font:inherit}
+.inp::placeholder{color:rgba(245,233,214,.4)}
+.inp:focus{outline:none;border-color:var(--amber)}
+.qty{display:flex;align-items:center;gap:6px}
+.qty button{width:46px;height:46px;border-radius:50%;border:1px solid var(--line);font-size:20px}
+.qty button:hover{border-color:var(--amber);color:var(--amber)}
+.qty input{width:90px;text-align:center;font-family:var(--serif);font-size:30px;background:none;border:0;color:var(--cream)}
+.qty input:focus{outline:none}
+.bulkb{margin-left:12px;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:6px 12px;border-radius:99px;background:rgba(240,160,75,.16);color:var(--amber);opacity:0;transition:opacity .3s}
+.bulkb.on{opacity:1}
+.prev{position:sticky;top:96px;background:var(--cream);color:var(--ink);border-radius:26px;padding:30px;box-shadow:0 50px 100px -30px #000}
+.prev::before{content:"";position:absolute;top:-1px;left:50%;width:18px;height:18px;margin:14px 0 0 -9px;border-radius:50%;background:var(--ink2)}
+.prev .tag{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--ember);font-weight:700;margin-top:26px}
+.prev h3{font-family:var(--serif);font-weight:400;font-size:clamp(26px,3.2vw,38px);line-height:1.1;margin:10px 0 18px}
+.prev h3 em{color:var(--ember)}
+.thumbs{display:flex;margin:6px 0 20px;min-height:84px}
+.thumbs img{width:84px;height:84px;border-radius:50%;object-fit:cover;border:3px solid var(--cream);margin-left:-18px;box-shadow:0 8px 20px -8px rgba(0,0,0,.5);animation:pop .5s var(--ease)}
+.thumbs img:first-child{margin-left:0}
+@keyframes pop{from{transform:scale(.6);opacity:0}}
+.prev dl{display:grid;grid-template-columns:auto 1fr;gap:8px 16px;font-size:14px;border-top:1px solid var(--lineD);padding-top:16px}
+.prev dt{opacity:.55}
+.prev dd{font-weight:600}
+.prev .btn{width:100%;justify-content:center;margin-top:22px}
+.prev small{display:block;text-align:center;margin-top:12px;opacity:.55;font-size:12px}
+
+/* steps */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid var(--lineD)}
+@media(max-width:900px){.steps{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.steps{grid-template-columns:1fr}}
+.step{padding:30px 24px 34px 0;border-right:1px solid var(--lineD)}
+.step:last-child{border-right:0}
+@media(max-width:900px){.step{border-bottom:1px solid var(--lineD)}}
+.step b{font-family:var(--serif);font-size:56px;font-weight:300;color:var(--ember);line-height:1}
+.step h3{font-family:var(--serif);font-weight:500;font-size:24px;margin:18px 0 8px}
+.step p{opacity:.72;font-size:15px}
+
+/* bulk */
+.bulk{background:var(--amber);color:var(--ink);padding:clamp(70px,9vw,120px) 0}
+.bulk .h2 em{color:var(--ink);text-decoration:underline;text-decoration-thickness:.06em;text-underline-offset:.12em}
+.bulk-g{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,70px);align-items:center}
+@media(max-width:860px){.bulk-g{grid-template-columns:1fr}}
+.bulk p{margin-top:20px;max-width:28em;font-size:18px}
+.bform{display:grid;gap:12px;background:var(--ink);color:var(--cream);padding:28px;border-radius:24px}
+.bform .two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:480px){.bform .two{grid-template-columns:1fr}}
+.bform .btn{justify-content:center;margin-top:6px}
+
+/* footer */
+footer{padding:80px 0 120px;text-align:center}
+footer .big{font-family:var(--serif);font-style:italic;font-size:clamp(46px,11vw,170px);line-height:.95;letter-spacing:-.04em;color:var(--amber);font-weight:300}
+footer p{margin:22px auto 34px;max-width:30em;opacity:.7}
+.credit{margin-top:60px;font-size:12px;letter-spacing:.06em;opacity:.45}
+
+/* mobile cta + toast */
+.mcta{position:fixed;inset:auto 12px 12px 12px;z-index:60;display:none;gap:10px}
+.mcta .btn{flex:1;justify-content:center;padding:14px}
+@media(max-width:700px){.mcta{display:flex}}
+.toast{position:fixed;left:50%;bottom:86px;transform:translate(-50%,20px);z-index:80;background:var(--cream);color:var(--ink);padding:14px 22px;border-radius:14px;font-weight:600;font-size:14px;opacity:0;pointer-events:none;transition:all .4s var(--ease);box-shadow:0 20px 60px -10px #000;max-width:calc(100vw - 32px);text-align:center}
+.toast.on{opacity:1;transform:translate(-50%,0)}
+@media(min-width:701px){.toast{bottom:36px}}
+
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition-duration:.01ms!important}
+  .rv{opacity:1;transform:none}
+  .dark,.glowdot{display:none}
+}
+</style>
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <a href="#top" class="logo">Glow <b>with</b> Amayra</a>
+  <nav class="nav-links"><a href="#collection">Collection</a><a href="#occasions">Occasions</a><a href="#build">Gift builder</a><a href="#bulk">Bulk</a></nav>
+  <button class="btn btn-a" data-dm="Hi Amayra! I found your website and would love to order candles.">Order on Instagram</button>
+</header>
+
+<main id="top">
+<section class="hero" id="hero" aria-label="Glow with Amayra">
+  <div class="coll" aria-hidden="true">
+    <img class="c1" src="img/glass-glitter.jpg" alt="">
+    <img class="c2" src="img/lotus.jpg" alt="">
+    <img class="c3" src="img/ganesha.jpg" alt="">
+    <img class="c4" src="img/tins.jpg" alt="">
+    <img class="c5" src="img/urli.jpg" alt="">
+  </div>
+  <div class="dark" id="dark"></div>
+  <div class="glowdot" id="dot"></div>
+  <div class="wrap hero-in">
+    <p class="eyebrow rv">Hand-poured soy candles · Delhi</p>
+    <h1 class="rv">Light something <em>worth</em> gifting.</h1>
+    <p class="rv">Soy wax candles poured by hand for weddings, baby showers, corporate gifts and every festival. Add a name, make it yours, order one or five hundred. Delivered across India.</p>
+    <div class="row rv">
+      <a href="#build" class="btn btn-a">Build your gift set →</a>
+      <button class="btn btn-o" data-dm="Hi Amayra! I'd like to ask about your candles.">Message on Instagram</button>
+      <button class="lightbtn" id="lightbtn" type="button"><i></i><span id="lighttxt">Light the room</span></button>
+    </div>
+  </div>
+  <div class="hero-meta wrap"><span>Move your light</span><span>Custom · Bulk · Corporate</span></div>
+</section>
+
+<div class="mq" aria-hidden="true"><div>
+  <span>Hand-poured soy wax</span><span>Custom names</span><span>Weddings</span><span>Baby showers</span><span>Corporate gifting</span><span>Bulk orders</span><span>Pan-India delivery</span><span>Festive urlis</span>
+  <span>Hand-poured soy wax</span><span>Custom names</span><span>Weddings</span><span>Baby showers</span><span>Corporate gifting</span><span>Bulk orders</span><span>Pan-India delivery</span><span>Festive urlis</span>
+</div></div>
+
+<section class="sec light" id="collection">
+  <div class="wrap">
+    <div class="sec-h">
+      <div><p class="eyebrow rv">The collection</p><h2 class="h2 rv">Made in small batches, <em>by hand.</em></h2></div>
+      <p class="rv">Tap the flame on any candle to ask Amayra about it on Instagram.</p>
+    </div>
+    <div class="grid">
+      <figure class="card a1 rv"><img src="img/tins.jpg" alt="Mandala print candle tins" loading="lazy"><figcaption class="cap"><div><h3>Mandala tin candles</h3><small>Gift-ready tins</small></div><button class="ask" aria-label="Ask about Mandala tin candles" data-dm="Hi Amayra! I saw the Mandala tin candles on your site and wanted to ask about them.">🔥</button></figcaption></figure>
+      <figure class="card a2 rv"><img src="img/lotus.jpg" alt="Pink lotus floating candle on green leaves" loading="lazy"><figcaption class="cap"><div><h3>Lotus floating candle</h3><small>Weddings · Diwali</small></div><button class="ask" aria-label="Ask about Lotus floating candles" data-dm="Hi Amayra! I saw the Lotus floating candles on your site and wanted to ask about them.">🔥</button></figcaption></figure>
+      <figure class="card a3 rv"><img src="img/glass-gold-note.jpg" alt="Gold glitter wine-glass candle with a handwritten birthday note" loading="lazy"><figcaption class="cap"><div><h3>Birthday wine-glass candle</h3><small>With a handwritten note</small></div><button class="ask" aria-label="Ask about the Birthday wine-glass candle" data-dm="Hi Amayra! I saw the Birthday wine-glass candle with the handwritten note on your site and wanted to ask about it.">🔥</button></figcaption></figure>
+      <figure class="card a4 rv"><img src="img/ganesha.jpg" alt="Orange Ganesha candle held in a hand" loading="lazy"><figcaption class="cap"><div><h3>Ganesha candle</h3><small>Festive and puja gifting</small></div><button class="ask" aria-label="Ask about Ganesha candles" data-dm="Hi Amayra! I saw the Ganesha candles on your site and wanted to ask about them.">🔥</button></figcaption></figure>
+      <figure class="card a5 rv"><img src="img/glass-glitter.jpg" alt="Lit red glitter wine-glass candle" loading="lazy"><figcaption class="cap"><div><h3>Glitter wine-glass candle</h3><small>Soy wax · vanilla</small></div><button class="ask" aria-label="Ask about the Glitter wine-glass candle" data-dm="Hi Amayra! I saw the Glitter wine-glass candle on your site and wanted to ask about it.">🔥</button></figcaption></figure>
+      <figure class="card a6 rv"><img src="img/urli.jpg" alt="Red lotus urli candle with gold beads" loading="lazy"><figcaption class="cap"><div><h3>Lotus urli candle</h3><small>Diwali and décor</small></div><button class="ask" aria-label="Ask about Lotus urli candles" data-dm="Hi Amayra! I saw the Lotus urli candles on your site and wanted to ask about them.">🔥</button></figcaption></figure>
+      <figure class="card a7 rv"><img src="img/glass-red.jpg" alt="Ruby red wine-glass candle outdoors" loading="lazy"><figcaption class="cap"><div><h3>Ruby wine-glass candle</h3><small>Table and gifting</small></div><button class="ask" aria-label="Ask about the Ruby wine-glass candle" data-dm="Hi Amayra! I saw the Ruby wine-glass candle on your site and wanted to ask about it.">🔥</button></figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="occasions">
+  <div class="wrap">
+    <div class="sec-h">
+      <div><p class="eyebrow rv">Occasions</p><h2 class="h2 rv">A candle for <em>every</em> moment.</h2></div>
+      <p class="rv">Pick an occasion and we'll start your gift set with it.</p>
+    </div>
+    <ul class="occ">
+      <li class="rv"><button data-occ="Wedding" data-img="img/lotus.jpg"><span class="n">01</span><span class="t">Weddings &amp; favours</span><span class="d">Floating lotus and tins for the mandap and the return gifts.</span></button></li>
+      <li class="rv"><button data-occ="Baby shower" data-img="img/glass-glitter.jpg"><span class="n">02</span><span class="t">Baby showers</span><span class="d">Soft colours, custom names, packed for guests.</span></button></li>
+      <li class="rv"><button data-occ="Corporate" data-img="img/tins.jpg"><span class="n">03</span><span class="t">Corporate gifting</span><span class="d">Bulk orders with your brand name on the note.</span></button></li>
+      <li class="rv"><button data-occ="Birthday" data-img="img/glass-gold-note.jpg"><span class="n">04</span><span class="t">Birthdays</span><span class="d">A wine-glass candle with a handwritten note.</span></button></li>
+      <li class="rv"><button data-occ="Festival" data-img="img/urli.jpg"><span class="n">05</span><span class="t">Diwali &amp; festivals</span><span class="d">Urlis, diyas and Ganesha candles by the dozen.</span></button></li>
+    </ul>
+  </div>
+</section>
+<div class="peek" id="peek"></div>
+
+<section class="sec build" id="build">
+  <div class="wrap bgrid">
+    <div>
+      <p class="eyebrow rv">Gift builder</p>
+      <h2 class="h2 rv">Design your <em>gift set.</em></h2>
+      <p class="rv" style="margin-top:18px;opacity:.7;max-width:28em">Tell us the occasion, the candles you like and how many. We'll send it to Amayra as a ready-to-read message on Instagram.</p>
+
+      <div class="fld"><span>Occasion</span><div class="chips" id="occChips">
+        <button class="chip" aria-pressed="true" data-v="Wedding">Wedding</button><button class="chip" aria-pressed="false" data-v="Baby shower">Baby shower</button><button class="chip" aria-pressed="false" data-v="Corporate">Corporate</button><button class="chip" aria-pressed="false" data-v="Birthday">Birthday</button><button class="chip" aria-pressed="false" data-v="Festival">Festival</button><button class="chip" aria-pressed="false" data-v="Just because">Just because</button>
+      </div></div>
+      <div class="fld"><span>Pick your candles (choose any)</span><div class="chips" id="styleChips">
+        <button class="chip" aria-pressed="true" data-v="Lotus floating" data-i="lotus">Lotus floating</button><button class="chip" aria-pressed="true" data-v="Mandala tins" data-i="tins">Mandala tins</button><button class="chip" aria-pressed="false" data-v="Ganesha" data-i="ganesha">Ganesha</button><button class="chip" aria-pressed="false" data-v="Lotus urli" data-i="urli">Lotus urli</button><button class="chip" aria-pressed="false" data-v="Wine-glass" data-i="glass-glitter">Wine-glass</button>
+      </div></div>
+      <div class="fld"><label for="qty">How many?</label><div class="qty"><button id="minus" aria-label="Fewer">−</button><input id="qty" type="number" min="1" max="1000" value="50" inputmode="numeric"><button id="plus" aria-label="More">+</button><span class="bulkb on" id="bulkb">Bulk order</span></div></div>
+      <div class="fld"><label for="note">Name or message on the note</label><input class="inp" id="note" maxlength="40" placeholder="e.g. Aarav &amp; Mira, 12 Feb"></div>
+      <div class="fld"><label for="city">Delivery city</label><input class="inp" id="city" maxlength="30" placeholder="e.g. Delhi, Mumbai, Pune"></div>
+    </div>
+
+    <aside class="prev rv" aria-live="polite">
+      <p class="tag">Your gift set</p>
+      <h3 id="pt">For a <em>wedding</em></h3>
+      <div class="thumbs" id="pth"></div>
+      <dl>
+        <dt>Candles</dt><dd id="pc">—</dd>
+        <dt>Quantity</dt><dd id="pq">50</dd>
+        <dt>Note</dt><dd id="pn">—</dd>
+        <dt>Deliver to</dt><dd id="pd">—</dd>
+      </dl>
+      <button class="btn btn-a" id="send">Send to Amayra on Instagram →</button>
+      <small>Opens Instagram. Your message is copied, just paste it.</small>
+    </aside>
+  </div>
+</section>
+
+<section class="sec light" id="how">
+  <div class="wrap">
+    <div class="sec-h"><div><p class="eyebrow rv">How it works</p><h2 class="h2 rv">From your idea to <em>your door.</em></h2></div></div>
+    <div class="steps">
+      <div class="step rv"><b>1</b><h3>Tell us</h3><p>Share the occasion, the candles you like and how many.</p></div>
+      <div class="step rv"><b>2</b><h3>Make it yours</h3><p>Pick colours, fragrance and the name or message for the note.</p></div>
+      <div class="step rv"><b>3</b><h3>Hand-poured</h3><p>Every candle is poured and finished by hand in soy wax.</p></div>
+      <div class="step rv"><b>4</b><h3>Packed &amp; shipped</h3><p>Carefully packed and delivered across India.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="bulk" id="bulk">
+  <div class="wrap bulk-g">
+    <div>
+      <p class="eyebrow" style="color:var(--ink)">Bulk &amp; corporate</p>
+      <h2 class="h2">Ordering for <em>50 or more?</em></h2>
+      <p>Wedding favours, festive gifting, brand hampers. Share your date and quantity and Amayra will reply with options.</p>
+    </div>
+    <form class="bform" id="bform">
+      <div class="two"><input class="inp" id="bn" placeholder="Your name or company" required><input class="inp" id="bq" type="number" min="50" placeholder="Quantity (50+)" required></div>
+      <div class="two"><select class="inp" id="be"><option>Wedding</option><option>Baby shower</option><option>Corporate gifting</option><option>Festival</option><option>Other</option></select><input class="inp" id="bd" placeholder="Needed by (date)"></div>
+      <button class="btn btn-a" type="submit">Send enquiry on Instagram →</button>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p class="eyebrow">Delhi · Pan-India delivery</p>
+    <div class="big">Let it glow.</div>
+    <p>Hand-poured soy candles, made with care. Message on Instagram to order or ask anything.</p>
+    <button class="btn btn-a" data-dm="Hi Amayra! I'd love to order candles.">Message @glow_with_amayra</button>
+    <p class="credit">Sample website by Kavimir, made with photos from @glow_with_amayra on Instagram.</p>
+  </div>
+</footer>
+
+<div class="mcta"><button class="btn btn-a" data-dm="Hi Amayra! I found your website and would love to order candles.">Order on Instagram</button><a href="#build" class="btn btn-o">Gift builder</a></div>
+<div class="toast" id="toast" role="status">Message copied. Paste it in the Instagram chat.</div>
+
+<script>
+const IG='https://ig.me/m/glow_with_amayra';
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
+
+/* reveal + nav */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+$$('.rv').forEach(el=>io.observe(el));
+const nav=$('#nav');const sc=()=>nav.classList.toggle('s',scrollY>40);sc();addEventListener('scroll',sc,{passive:true});
+
+/* DM helper: copy message, then open Instagram chat */
+let tt;
+function dm(msg){
+  try{navigator.clipboard&&navigator.clipboard.writeText(msg)}catch(e){}
+  const t=$('#toast');t.classList.add('on');clearTimeout(tt);tt=setTimeout(()=>t.classList.remove('on'),3600);
+  window.open(IG,'_blank','noopener');
+}
+document.addEventListener('click',e=>{const b=e.target.closest('[data-dm]');if(b)dm(b.dataset.dm)});
+
+/* hero: the cursor is the flame */
+const hero=$('#hero'),dark=$('#dark'),dot=$('#dot');
+let mx=null,my=null,last=0,lit=reduce;
+if(lit)hero.classList.add('lit');
+hero.addEventListener('pointermove',e=>{const r=hero.getBoundingClientRect();mx=e.clientX-r.left;my=e.clientY-r.top;last=performance.now()});
+$('#lightbtn').addEventListener('click',()=>{lit=!lit;hero.classList.toggle('lit',lit);$('#lighttxt').textContent=lit?'Blow it out':'Light the room'});
+if(lit)$('#lighttxt').textContent='Blow it out';
+let cx=0,cy=0,init=false;
+function tick(t){
+  const W=hero.clientWidth,H=hero.clientHeight;
+  if(!init){cx=W*.7;cy=H*.45;init=true}
+  let tx,ty;
+  if(mx!==null&&t-last<2600){tx=mx;ty=my}
+  else{tx=W*(.62+.26*Math.sin(t/1700));ty=H*(.5+.22*Math.sin(t/1250+1))}
+  cx+=(tx-cx)*.1;cy+=(ty-cy)*.1;
+  const r=(W<820?170:240)+Math.sin(t/90)*6+Math.sin(t/37)*3;
+  dark.style.setProperty('--x',cx+'px');dark.style.setProperty('--y',cy+'px');dark.style.setProperty('--r',r+'px');
+  dot.style.setProperty('--px',cx+'px');dot.style.setProperty('--py',cy+'px');
+  if(!reduce)requestAnimationFrame(tick);
+}
+if(!reduce)requestAnimationFrame(tick);
+
+/* occasion rows: preview follows cursor, click starts the builder */
+const peek=$('#peek');
+$$('.occ button').forEach(b=>{
+  b.addEventListener('mouseenter',()=>{peek.style.backgroundImage='url('+b.dataset.img+')';peek.classList.add('on')});
+  b.addEventListener('mouseleave',()=>peek.classList.remove('on'));
+  b.addEventListener('mousemove',e=>{peek.style.transform='translate('+(e.clientX+28)+'px,'+(e.clientY-120)+'px) scale(1)'});
+  b.addEventListener('click',()=>{
+    $$('#occChips .chip').forEach(c=>c.setAttribute('aria-pressed',c.dataset.v===b.dataset.occ));
+    upd();$('#build').scrollIntoView({behavior:reduce?'auto':'smooth'});
+  });
+});
+
+/* gift builder */
+function upd(){
+  const occ=($('#occChips .chip[aria-pressed=true]')||{dataset:{v:'Just because'}}).dataset.v;
+  const sel=$$('#styleChips .chip[aria-pressed=true]');
+  const q=Math.max(1,Math.min(1000,parseInt($('#qty').value)||1));
+  const note=$('#note').value.trim(),city=$('#city').value.trim();
+  $('#pt').innerHTML=occ==='Just because'?'Just <em>because</em>':'For a <em>'+occ.toLowerCase()+'</em>';
+  $('#pth').innerHTML=sel.map(c=>'<img src="img/'+c.dataset.i+'.jpg" alt="'+c.dataset.v+'">').join('');
+  $('#pc').textContent=sel.length?sel.map(c=>c.dataset.v).join(', '):'Choose a style';
+  $('#pq').textContent=q+(q>=50?' (bulk)':'');
+  $('#pn').textContent=note||'No note yet';
+  $('#pd').textContent=city||'Not set';
+  $('#bulkb').classList.toggle('on',q>=50);
+}
+$('#occChips').addEventListener('click',e=>{const c=e.target.closest('.chip');if(!c)return;$$('#occChips .chip').forEach(x=>x.setAttribute('aria-pressed',x===c));upd()});
+$('#styleChips').addEventListener('click',e=>{const c=e.target.closest('.chip');if(!c)return;c.setAttribute('aria-pressed',c.getAttribute('aria-pressed')!=='true');upd()});
+$('#minus').onclick=()=>{$('#qty').value=Math.max(1,(parseInt($('#qty').value)||1)-($('#qty').value>50?10:1));upd()};
+$('#plus').onclick=()=>{$('#qty').value=Math.min(1000,(parseInt($('#qty').value)||1)+($('#qty').value>=50?10:1));upd()};
+['#qty','#note','#city'].forEach(s=>$(s).addEventListener('input',upd));
+$('#send').onclick=()=>{
+  const occ=($('#occChips .chip[aria-pressed=true]')||{dataset:{v:'gift'}}).dataset.v;
+  const sel=$$('#styleChips .chip[aria-pressed=true]').map(c=>c.dataset.v).join(', ')||'a mix';
+  const q=parseInt($('#qty').value)||1,note=$('#note').value.trim(),city=$('#city').value.trim();
+  dm('Hi Amayra! I designed a gift set on your website.\nOccasion: '+occ+'\nCandles: '+sel+'\nQuantity: '+q+(q>=50?' (bulk)':'')+(note?'\nNote on card: '+note:'')+(city?'\nDelivery city: '+city:'')+'\nCould you share options and pricing?');
+};
+upd();
+
+/* bulk form */
+$('#bform').addEventListener('submit',e=>{
+  e.preventDefault();
+  dm('Hi Amayra! Bulk enquiry from your website.\nName/company: '+$('#bn').value+'\nOccasion: '+$('#be').value+'\nQuantity: '+$('#bq').value+($('#bd').value?'\nNeeded by: '+$('#bd').value:'')+'\nPlease share options and pricing.');
+});
+</script>
+</body>
+</html>
